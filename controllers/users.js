@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 
 /**
- * @route POST /api/user/login 
+ * @route POST /api/users/login 
  * @desc log in 
  * @access Public
  */
@@ -41,7 +41,7 @@ const login = async(req, res) => {
 }
 
 /**
- * @route POST api/user/register 
+ * @route POST api/users/register 
  * @descr registred
  * @access Public
  */
@@ -86,8 +86,14 @@ const register = async(req, res) => {
         return res.status(400).json({ message: "User don't created"})
     }
 } 
+
+/**
+ * @router GET app/users/current
+ * @desc current user
+ * @access Private
+ */
 const current = async(req, res) => {
-    res.send('current');
+    return res.status(200).json(req.user)
 }
 
 module.exports = {
