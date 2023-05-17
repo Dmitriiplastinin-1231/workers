@@ -7,6 +7,7 @@ require('dotenv').config();
 
 
 const usersRouter = require('./routes/users');
+const employees = require('./routes/employees')
 
 const app = express();
 
@@ -17,5 +18,6 @@ app.use(cookieParser());
 
 
 app.use('/api/users', usersRouter);
+app.use('/api/employees', employees);
 
 module.exports = app;
