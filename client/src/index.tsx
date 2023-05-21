@@ -6,8 +6,9 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { Paths } from './paths';
 import Login from './pages/login/Login';
-import Register from './pages/register/register';
+import Register from './pages/register/Register';
 import './index.css';
+import { ConfigProvider, theme } from 'antd';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,11 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={ store }>
-      <RouterProvider router={ router } />
+      <ConfigProvider theme={{
+        algorithm: theme.darkAlgorithm
+      }}>
+        <RouterProvider router={ router } />
+      </ConfigProvider>
     </Provider>
   </React.StrictMode>
 );
