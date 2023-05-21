@@ -27,7 +27,7 @@ const PasswordInput = ({
                 }
 
                 if(name === 'confirmPassword') {
-                    if(!value || getFieldValue('Password') === value){
+                    if(!value || getFieldValue('password') === value){
                         return Promise.resolve();
                     }
                     return Promise.reject(new Error('passwords don\'t match'))
